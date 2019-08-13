@@ -7,12 +7,12 @@ use Aws\Ses\SesClient;
 use Aws\Exception\AwsException;
 
 
-$recipient_emails = ['eldoroshi@gmail.com', 'rakelaruco@gmail.com'];
+$recipient_emails = ['test1@gmail.com', 'test2@gmail.com'];
 
 $i = 0;
 
 /* Its important to send only 50 emails for one api call */
-$freq = 2;
+$freq = 50;
 
 $receipt_newarray = array();
 foreach($recipient_emails as $receipt){
@@ -47,8 +47,8 @@ function amazon_sendEmail($receipt_newarray){
 
       // Replace sender@example.com with your "From" address.
       // This address must be verified with Amazon SES.
-      $sender_email = 'codeless.sol@gmail.com';
-      $name = 'Codeless <codeless.sol@gmail.com>';
+      $sender_email = 'test2@gmail.com';
+      $name = 'Test <test3@gmail.com>';
       // Replace these sample addresses with the addresses of your recipients. If
       // your account is still in the sandbox, these addresses must be verified.
 
