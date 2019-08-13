@@ -40,8 +40,8 @@ function amazon_sendEmail($receipt_newarray){
           'version' => 'latest',
           'region'  => 'eu-west-1',
           'credentials' => [
-              'key' => 'AKIARCIB5W7UUZ7LA457',
-              'secret' => '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',
+              'key' => '',
+              'secret' => '',
         ]
       ]);
 
