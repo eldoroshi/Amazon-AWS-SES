@@ -6,32 +6,13 @@ require_once '../../php/vendor/autoload.php';
 use Aws\Ses\SesClient;
 use Aws\Exception\AwsException;
 
-// Create an SesClient. Change the value of the region parameter if you're 
-// using an AWS Region other than US West (Oregon). Change the value of the
-// profile parameter if you want to use a profile in your credentials file
-// other than the default.
-$SesClient = new SesClient([
-    'version' => 'latest',
-    'region'  => 'eu-west-1',
-    'credentials' => [
-        'key' => '******',
-        'secret' => '*******',
-  ]
-]);
 
-// Replace sender@example.com with your "From" address.
-// This address must be verified with Amazon SES.
-$sender_email = 'Youremail@gmail.com';
-$name = 'Company <Youremail@gmail.com>';
-// Replace these sample addresses with the addresses of your recipients. If
-// your account is still in the sandbox, these addresses must be verified.
-//Here you can add you 50000 emails to be sent you can also call it from a csv file
-$recipient_emails = ['test@gmail.com'];
+$recipient_emails = ['eldoroshi@gmail.com', 'rakelaruco@gmail.com'];
 
 $i = 0;
 
 /* Its important to send only 50 emails for one api call */
-$freq = 50;
+$freq = 2;
 
 $receipt_newarray = array();
 foreach($recipient_emails as $receipt){
@@ -43,11 +24,35 @@ foreach($recipient_emails as $receipt){
    amazon_sendEmail($receipt_newarray);
    $receipt_newarray = array();
      
+
    }
+
 }   
 
 
-  function amazon_sendEmail($receipt_newarray){
+function amazon_sendEmail($receipt_newarray){
+
+      // Create an SesClient. Change the value of the region parameter if you're 
+      // using an AWS Region other than US West (Oregon). Change the value of the
+      // profile parameter if you want to use a profile in your credentials file
+      // other than the default.
+      $SesClient = new SesClient([
+          'version' => 'latest',
+          'region'  => 'eu-west-1',
+          'credentials' => [
+              'key' => 'AKIARCIB5W7UUZ7LA457',
+              'secret' => 'BdUZ/QBWq+ibc6AfKIRVoWwReeyQBnu06/6/bQHR',
+        ]
+      ]);
+
+      // Replace sender@example.com with your "From" address.
+      // This address must be verified with Amazon SES.
+      $sender_email = 'codeless.sol@gmail.com';
+      $name = 'Codeless <codeless.sol@gmail.com>';
+      // Replace these sample addresses with the addresses of your recipients. If
+      // your account is still in the sandbox, these addresses must be verified.
+
+
    
       // Specify a configuration set. If you do not want to use a configuration
       // set, comment the following variable, and the
